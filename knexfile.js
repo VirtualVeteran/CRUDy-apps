@@ -1,25 +1,20 @@
-// Update with your config settings.
-
-/**
- * @type { Object.<string, import("knex").Knex.Config> }
- */
 module.exports = {
-
   development: {
-    client: 'postgresgl',
+    client: 'pg',
     connection: {
-      host:'127.0.0.1',
-      password: 'docker',
+      host: '127.0.0.1',
       user: 'postgres',
-      port: 5432
+      password: 'docker',
+      database: 'food_store' 
     }
   },
 
   staging: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
+      host: '127.0.0.1', 
+      database: 'food_store',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -27,6 +22,7 @@ module.exports = {
       max: 10
     },
     migrations: {
+      directory: './migrations',
       tableName: 'knex_migrations'
     }
   },
@@ -34,8 +30,9 @@ module.exports = {
   production: {
     client: 'postgresql',
     connection: {
-      database: 'my_db',
-      user:     'username',
+      host: '127.0.0.1', 
+      database: 'food_store',
+      user: 'username',
       password: 'password'
     },
     pool: {
@@ -46,5 +43,4 @@ module.exports = {
       tableName: 'knex_migrations'
     }
   }
-
 };
